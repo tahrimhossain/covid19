@@ -193,15 +193,8 @@ class _CountryCardState extends State<CountryCard> with SingleTickerProviderStat
               ],
             )
         ),
-        onTap:()async{
-          //Navigator.push(context, MaterialPageRoute(builder: (context) => CountryInfoPage(country:widget.country)));
-          List<FlSpot> listOfSpots = await API().fetchConfirmedGraphData(widget.country.country);
-          print(listOfSpots.length);
-          listOfSpots.forEach((element) {
-            FlSpot spot= element;
-            print("X"+spot.x.toString()+" Y"+spot.y.toString());
-          });
-          Navigator.push(context, MaterialPageRoute(builder: (context) => CountryDetailView(listOfSpots)));
+        onTap:(){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CountryDetailView(widget.country)));
         }
     );
   }

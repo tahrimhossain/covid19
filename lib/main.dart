@@ -4,6 +4,8 @@ import 'package:covid19/Views/GlobalView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'CountryDetailView_Bloc/CountryDetailView_bloc.dart';
+
 void main() {
   runApp(
       RepositoryProvider(
@@ -13,6 +15,10 @@ void main() {
               BlocProvider<GlobalViewBloc>(
                 lazy: false,
                 create: (BuildContext context) => GlobalViewBloc(context.read<API>()),
+              ),
+              BlocProvider<CountryDetailViewBloc>(
+                lazy: false,
+                create: (BuildContext context) => CountryDetailViewBloc(context.read<API>()),
               ),
             ],
             child: MaterialApp(
