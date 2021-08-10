@@ -1,5 +1,7 @@
 import 'package:covid19/Models/Country.dart';
 import 'package:covid19/Services/API.dart';
+import 'package:covid19/Views/CountryDetailView.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -193,7 +195,13 @@ class _CountryCardState extends State<CountryCard> with SingleTickerProviderStat
         ),
         onTap:()async{
           //Navigator.push(context, MaterialPageRoute(builder: (context) => CountryInfoPage(country:widget.country)));
-
+          List<FlSpot> listOfSpots = await API().fetchConfirmedGraphData(widget.country.country);
+          print(listOfSpots.length);
+          listOfSpots.forEach((element) {
+            FlSpot spot= element;
+            print("X"+spot.x.toString()+" Y"+spot.y.toString());
+          });
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CountryDetailView(listOfSpots)));
         }
     );
   }

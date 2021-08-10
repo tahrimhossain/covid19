@@ -1,10 +1,10 @@
 class GraphData{
   late int count;
-  late String date;
+  late DateTime date;
 
   GraphData.fromJson(Map<String, dynamic> json) {
     count = json['Cases'];
-    date = json['Date'];
+    date = DateTime.parse(json['Date']);
   }
 
 }

@@ -31,7 +31,8 @@ dependencies:
   http: ^0.13.3
   flutter_bloc: ^7.0.1
   intl: ^0.17.0
-  syncfusion_flutter_charts: ^19.2.46
+  fl_chart: ^0.36.2
+  
   
 
 dev_dependencies:
