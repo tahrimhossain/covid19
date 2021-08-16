@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:covid19/Models/CovidData.dart';
+import 'package:covid19/Views/SearchPage.dart';
 import 'package:flutter/material.dart';
 import 'package:covid19/Views/CountryCard.dart';
 
@@ -33,7 +34,9 @@ class _CountryViewState extends State<CountryView> {
         actions: [
           GestureDetector(
             child: Icon(Icons.search),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage(widget.covidData)));
+            },
           ),
         ],
       ),
