@@ -2,6 +2,7 @@ import 'package:covid19/GlobalView_Bloc/GlobalView_bloc.dart';
 import 'package:covid19/GlobalView_Bloc/GlobalView_event.dart';
 import 'package:covid19/GlobalView_Bloc/GlobalView_state.dart';
 import 'package:covid19/Views/CountryView.dart';
+import 'package:covid19/Views/SymptomsAndPreventions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -230,7 +231,10 @@ class _GlobalViewState extends State<GlobalView>{
                   ListTile(
                     title: Text("Symptoms & Preventions"),
                     onTap: (){
-                      
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SymptomsAndPreventions()));
                     },
                   ),
                 ],
