@@ -9,7 +9,8 @@ import 'dart:convert';
 class API{
 
   Future<CovidData> getCovidData()async{
-    http.Response response = await http.get(Uri.parse('https://api.covid19api.com/summary'));
+
+    http.Response response = await http.get(Uri.parse('https://cov-api-19.herokuapp.com/summary'));
     if(response.statusCode == 200){
       return CovidData.fromJson(json.decode(response.body));
     }
@@ -22,22 +23,13 @@ class API{
   Future<List<FlSpot>> fetchConfirmedGraphData(String countryName)async
   {
 
-    http.Response response = await http.get(Uri.parse("https://api.covid19api.com/total/dayone/country/"+countryName+"/status/confirmed"));
-
+    http.Response response = await http.get(Uri.parse('https://cov-api-19.herokuapp.com/dailynewconfirmed/'+countryName));
     if(response.statusCode == 200){
 
       List<FlSpot> listOfSpots = <FlSpot>[];
 
-      int count = 0;
-
       json.decode(response.body).forEach((element){
         GraphData data = GraphData.fromJson(element);
-        int temp = data.count;
-        data.count -= count;
-        if(data.count < 0){
-          data.count = 0;
-        }
-        count = temp;
         listOfSpots.add(FlSpot(data.date.millisecondsSinceEpoch.toDouble(), data.count.toDouble()));
       });
 
@@ -53,22 +45,13 @@ class API{
   Future<List<FlSpot>> fetchConfirmedDeathData(String countryName)async
   {
 
-    http.Response response = await http.get(Uri.parse("https://api.covid19api.com/total/dayone/country/"+countryName+"/status/deaths"));
-
+    http.Response response = await http.get(Uri.parse('https://cov-api-19.herokuapp.com/dailynewdeath/'+countryName));
     if(response.statusCode == 200){
 
       List<FlSpot> listOfSpots = <FlSpot>[];
 
-      int count = 0;
-
       json.decode(response.body).forEach((element){
         GraphData data = GraphData.fromJson(element);
-        int temp = data.count;
-        data.count -= count;
-        if(data.count < 0){
-          data.count = 0;
-        }
-        count = temp;
         listOfSpots.add(FlSpot(data.date.millisecondsSinceEpoch.toDouble(), data.count.toDouble()));
       });
 
