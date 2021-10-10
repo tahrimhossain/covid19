@@ -1,6 +1,7 @@
 # covid19
 
 An app made with flutter to show worldwide covid-19 stats. It also shows stats for countries.
+This app uses [covid19--api](https://github.com/tahrimhossain/covid19--api)
 
 
 
