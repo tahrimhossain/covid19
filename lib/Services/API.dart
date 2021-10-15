@@ -23,7 +23,7 @@ class API{
   Future<List<FlSpot>> fetchConfirmedGraphData(String countryName)async
   {
 
-    http.Response response = await http.get(Uri.parse('https://cov-api-19.herokuapp.com/dailynewconfirmed/'+countryName));
+    http.Response response = await http.get(Uri.parse('https://cov-api-19.herokuapp.com/all/confirmed/'+countryName));
     if(response.statusCode == 200){
 
       List<FlSpot> listOfSpots = <FlSpot>[];
@@ -45,7 +45,7 @@ class API{
   Future<List<FlSpot>> fetchConfirmedDeathData(String countryName)async
   {
 
-    http.Response response = await http.get(Uri.parse('https://cov-api-19.herokuapp.com/dailynewdeath/'+countryName));
+    http.Response response = await http.get(Uri.parse('https://cov-api-19.herokuapp.com/all/death/'+countryName));
     if(response.statusCode == 200){
 
       List<FlSpot> listOfSpots = <FlSpot>[];
