@@ -3,8 +3,8 @@ import 'package:covid19/GlobalView_Bloc/GlobalView_event.dart';
 import 'package:covid19/GlobalView_Bloc/GlobalView_state.dart';
 import 'package:covid19/Views/CountryView.dart';
 import 'package:covid19/Views/SymptomsAndPreventions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GlobalView extends StatefulWidget{
@@ -44,7 +44,7 @@ class _GlobalViewState extends State<GlobalView>{
               ),
               elevation: 0,
               iconTheme: new IconThemeData(color: Colors.black),
-              brightness: Brightness.light,
+              systemOverlayStyle: SystemUiOverlayStyle.dark,
             ),
             body:RefreshIndicator(
                 child: ListView(
@@ -252,7 +252,7 @@ class _GlobalViewState extends State<GlobalView>{
               ),
               elevation: 0,
               iconTheme: new IconThemeData(color: Colors.black),
-              brightness: Brightness.light,
+              systemOverlayStyle: SystemUiOverlayStyle.dark,
             ),
             body:RefreshIndicator(
                 child: ListView(
@@ -449,7 +449,7 @@ class _GlobalViewState extends State<GlobalView>{
               backgroundColor: Colors.transparent,
               elevation: 0,
               iconTheme: new IconThemeData(color: Colors.black),
-              brightness: Brightness.light,
+              systemOverlayStyle: SystemUiOverlayStyle.dark,
             ),
             body: Center(
                 child: Padding(

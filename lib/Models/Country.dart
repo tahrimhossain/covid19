@@ -1,6 +1,7 @@
 class Country {
 
   late String country;
+  late String flag;
   late int newConfirmed;
   late int totalConfirmed;
   late int newDeaths;
@@ -10,10 +11,11 @@ class Country {
 
 
 
-  Country({required this.country,required this.newConfirmed,required this.totalConfirmed,required this.newDeaths,required this.totalDeaths,required this.newRecovered,required this.totalRecovered});
+  Country({required this.country,required this.flag,required this.newConfirmed,required this.totalConfirmed,required this.newDeaths,required this.totalDeaths,required this.newRecovered,required this.totalRecovered});
 
   Country.fromJson(Map<String, dynamic> json) {
     country = json['Country'];
+    flag = json['Flag'];
     newConfirmed = json['NewConfirmed'];
     totalConfirmed = json['TotalConfirmed'];
     newDeaths = json['NewDeaths'];

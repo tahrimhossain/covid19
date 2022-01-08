@@ -1,8 +1,8 @@
-import 'dart:async';
 import 'package:covid19/Models/CovidData.dart';
 import 'package:covid19/Views/SearchPage.dart';
 import 'package:flutter/material.dart';
 import 'package:covid19/Views/CountryCard.dart';
+import 'package:flutter/services.dart';
 
 class CountryView extends StatefulWidget {
   final CovidData covidData;
@@ -30,7 +30,7 @@ class _CountryViewState extends State<CountryView> {
                   fontSize: 25)),
         ),
         iconTheme: new IconThemeData(color: Colors.black),
-        brightness: Brightness.light,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         actions: [
           GestureDetector(
             child: Icon(Icons.search),

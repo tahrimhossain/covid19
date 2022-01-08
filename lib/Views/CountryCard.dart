@@ -1,8 +1,5 @@
 import 'package:covid19/Models/Country.dart';
-import 'package:covid19/Services/API.dart';
 import 'package:covid19/Views/CountryDetailView.dart';
-import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 

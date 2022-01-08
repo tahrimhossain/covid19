@@ -1,6 +1,5 @@
 import 'package:covid19/Models/CovidData.dart';
 import 'package:covid19/Views/CountryCard.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatefulWidget{
@@ -37,6 +36,7 @@ class _SearchPageState extends State<SearchPage>{
   Widget build(BuildContext context) {
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body:Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
