@@ -9,10 +9,9 @@ class CovidData{
 
   CovidData.fromJson(Map<String, dynamic> json) {
     global = new Global.fromJson(json['Global']);
-    if (json['Countries'] != null) {
-      countries = <Country>[];
-      json['Countries'].forEach((v) { countries.add(new Country.fromJson(v)); });
-    }
+    countries = <Country>[];
+    json['Countries'].forEach((v) { countries.add(new Country.fromJson(v)); });
+
   }
 
 }
