@@ -55,13 +55,14 @@ class _CountryDetailViewState extends State<CountryDetailView>{
                     expandedHeight: (100/844)*MediaQuery.of(context).size.height,
                     flexibleSpace: FlexibleSpaceBar(
                         background: Padding(
-                          padding: EdgeInsets.only(bottom:(15/844)*MediaQuery.of(context).size.height),
+                          padding: EdgeInsets.only(bottom:12,top:4),
                           child: Stack(
                             alignment: Alignment.bottomCenter,
                             children: [
                               Container(
-                                height:(35/844)*MediaQuery.of(context).size.height,
-                                width:(60/390)*MediaQuery.of(context).size.width,
+                                height:35,
+                                width:70,
+                                alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image: NetworkImage(widget.country.flag,),
