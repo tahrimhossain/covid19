@@ -1,7 +1,6 @@
 import 'package:covid19/CountryDetailView_Bloc/CountryDetailView_bloc.dart';
 import 'package:covid19/CountryDetailView_Bloc/CountryDetailView_event.dart';
 import 'package:covid19/CountryDetailView_Bloc/CountryDetailView_state.dart';
-import 'package:covid19/Models/Country.dart';
 import 'package:covid19/Views/ConfirmedGraph.dart';
 import 'package:covid19/Views/DeathsGraph.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 class CountryDetailView extends StatefulWidget{
-  final Country country;
+  final String country;
   CountryDetailView(this.country);
   @override
   _CountryDetailViewState createState() => _CountryDetailViewState();
@@ -21,7 +20,7 @@ class _CountryDetailViewState extends State<CountryDetailView>{
   @override
   void initState() {
     BlocProvider.of<CountryDetailViewBloc>(context)
-        .add(LoadCountryDetailView(widget.country));
+        .add(LoadCountryDetailView(country: widget.country));
     super.initState();
   }
   
@@ -49,7 +48,7 @@ class _CountryDetailViewState extends State<CountryDetailView>{
                     centerTitle: true,
                     title: FittedBox(
                       fit: BoxFit.scaleDown,
-                      child: Text(widget.country.country,style:TextStyle(fontWeight: FontWeight.bold,fontSize:22,color: Colors.black),),
+                      child: Text(widget.country,style:TextStyle(fontWeight: FontWeight.bold,fontSize:22,color: Colors.black),),
                     ),
                     backgroundColor: Colors.white,
                     expandedHeight: (100/844)*MediaQuery.of(context).size.height,
@@ -65,7 +64,7 @@ class _CountryDetailViewState extends State<CountryDetailView>{
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
-                                    image: NetworkImage(widget.country.flag,),
+                                    image: NetworkImage(state.country.flag,),
                                     fit: BoxFit.cover,
                                   ),
                                   border: Border.all(width:0.2),
@@ -227,7 +226,7 @@ class _CountryDetailViewState extends State<CountryDetailView>{
                 backgroundColor: Colors.transparent,
                 elevation: 0,
                 iconTheme: new IconThemeData(color: Colors.black),
-                brightness: Brightness.light,
+                systemOverlayStyle: SystemUiOverlayStyle.light,
               ),
               body: Center(
                   child: Padding(
@@ -286,7 +285,7 @@ class _CountryDetailViewState extends State<CountryDetailView>{
                         TextButton(
                             onPressed: () {
                               BlocProvider.of<CountryDetailViewBloc>(context)
-                                  .add(LoadCountryDetailView(widget.country));
+                                  .add(LoadCountryDetailView(country:widget.country));
                             },
                             child: Text(
                               "Retry",

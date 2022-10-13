@@ -1,7 +1,6 @@
 import 'package:covid19/Models/Country.dart';
-import 'package:covid19/Views/CountryDetailView.dart';
 import 'package:flutter/material.dart';
-
+import 'package:go_router/go_router.dart';
 
 
 
@@ -191,7 +190,7 @@ class _CountryCardState extends State<CountryCard> with SingleTickerProviderStat
             )
         ),
         onTap:(){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => CountryDetailView(widget.country)));
+          context.push('/detail/'+widget.country.country);
         }
     );
   }

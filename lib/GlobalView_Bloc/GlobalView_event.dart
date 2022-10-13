@@ -1,4 +1,4 @@
-import 'package:covid19/Models/CovidData.dart';
+
 
 class GlobalViewEvent
 {
@@ -9,7 +9,6 @@ class LoadGlobalViewEvent extends GlobalViewEvent{
   LoadGlobalViewEvent():super();
 }
 
-class RefreshGlobalViewEvent extends GlobalViewEvent{
-  CovidData covidData;
-  RefreshGlobalViewEvent(this.covidData):super();
+class TransitionToOtherPageFromGlobalView extends GlobalViewEvent{
+  TransitionToOtherPageFromGlobalView():super();
 }

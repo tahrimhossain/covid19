@@ -1,10 +1,11 @@
-import 'package:covid19/Models/CovidData.dart';
 import 'package:covid19/Views/CountryCard.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../Models/Countries.dart';
 
 class SearchPage extends StatefulWidget{
-  final CovidData covidData;
-  SearchPage(this.covidData);
+  final Countries countries;
+  SearchPage(this.countries);
   _SearchPageState createState()=> _SearchPageState();
 }
 
@@ -47,7 +48,7 @@ class _SearchPageState extends State<SearchPage>{
               children: [
                 MaterialButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    GoRouter.of(context).pop();
                   },
                   minWidth: 20.0,
                   //color: Colors.blue,
@@ -89,9 +90,9 @@ class _SearchPageState extends State<SearchPage>{
                 padding:EdgeInsets.all(12),
                 child: new ListView.builder
                   (
-                  itemCount: widget.covidData.countries.length,
+                  itemCount: widget.countries.countries!.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return filter == "" ? new Container() : widget.covidData.countries[index].country.toLowerCase().contains(filter.toLowerCase()) ? new CountryCard(widget.covidData.countries[index]) : new Container();
+                    return filter == "" ? new Container() : widget.countries.countries![index].country.toLowerCase().contains(filter.toLowerCase()) ? new CountryCard(widget.countries.countries![index]) : new Container();
                   },
                 ),
               )

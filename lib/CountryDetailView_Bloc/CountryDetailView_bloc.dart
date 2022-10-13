@@ -1,3 +1,4 @@
+import 'package:covid19/Models/Country.dart';
 import 'package:covid19/Services/API.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,9 +17,10 @@ class CountryDetailViewBloc extends Bloc<CountryDetailViewEvent,CountryDetailVie
         yield LoadingCountryDetailViewState();
       }
       try{
-        List<FlSpot> listOfConfirmedCasesSpots = await _api.fetchConfirmedGraphData(event.country.country);
-        List<FlSpot> listOfDeathsSpots = await _api.fetchConfirmedDeathData(event.country.country);
-        yield LoadedCountryDetailViewState(event.country, listOfConfirmedCasesSpots, listOfDeathsSpots);
+        List<FlSpot> listOfConfirmedCasesSpots = await _api.fetchConfirmedGraphData(event.country);
+        List<FlSpot> listOfDeathsSpots = await _api.fetchConfirmedDeathData(event.country);
+        Country countryInfo = await _api.getCountry(event.country);
+        yield LoadedCountryDetailViewState(countryInfo, listOfConfirmedCasesSpots, listOfDeathsSpots);
       }catch(e){
         yield ErrorLoadingCountryDetailView();
       }
