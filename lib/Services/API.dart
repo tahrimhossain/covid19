@@ -10,7 +10,7 @@ import '../Models/Country.dart';
 
 class API{
   Future<Global> getGlobalData()async{
-    http.Response response = await http.get(Uri.parse('https://cov-api-19.herokuapp.com/global'));
+    http.Response response = await http.get(Uri.parse('https://covid19-api.onrender.com/global'));
     if(response.statusCode == 200){
       return Global.fromJson(json.decode(response.body));
     }
@@ -20,7 +20,7 @@ class API{
   }
   Future<Countries> getCountries()async{
 
-    http.Response response = await http.get(Uri.parse('https://cov-api-19.herokuapp.com/summary')).timeout(Duration(seconds: 7));
+    http.Response response = await http.get(Uri.parse('https://covid19-api.onrender.com/summary')).timeout(Duration(seconds: 7));
     if(response.statusCode == 200){
       return Countries.fromJson(json.decode(response.body));
     }
@@ -31,7 +31,7 @@ class API{
   }
 
   Future<Country> getCountry(String country)async{
-    http.Response response = await http.get(Uri.parse('https://cov-api-19.herokuapp.com/country/'+country)).timeout(Duration(seconds: 7));
+    http.Response response = await http.get(Uri.parse('https://covid19-api.onrender.com/country/'+country)).timeout(Duration(seconds: 7));
     if(response.statusCode == 200){
       return Country.fromJson(json.decode(response.body));
     }
@@ -43,7 +43,7 @@ class API{
   Future<List<FlSpot>> fetchConfirmedGraphData(String countryName)async
   {
 
-    http.Response response = await http.get(Uri.parse('https://cov-api-19.herokuapp.com/all/confirmed/'+countryName)).timeout(Duration(seconds: 7));
+    http.Response response = await http.get(Uri.parse('https://covid19-api.onrender.com/all/confirmed/'+countryName)).timeout(Duration(seconds: 7));
     if(response.statusCode == 200){
 
       List<FlSpot> listOfSpots = <FlSpot>[];
@@ -65,7 +65,7 @@ class API{
   Future<List<FlSpot>> fetchConfirmedDeathData(String countryName)async
   {
 
-    http.Response response = await http.get(Uri.parse('https://cov-api-19.herokuapp.com/all/death/'+countryName)).timeout(Duration(seconds: 7));
+    http.Response response = await http.get(Uri.parse('https://covid19-api.onrender.com/all/death/'+countryName)).timeout(Duration(seconds: 7));
     if(response.statusCode == 200){
 
       List<FlSpot> listOfSpots = <FlSpot>[];
