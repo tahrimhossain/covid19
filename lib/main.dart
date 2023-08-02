@@ -18,7 +18,6 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
   runApp(RepositoryProvider(
     create: (context) => API(),
     child: MultiBlocProvider(
